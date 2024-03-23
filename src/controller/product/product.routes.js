@@ -5,6 +5,11 @@ const productController = new ProductController();
 
 const productRouter = express.Router();
 
-productRouter.get("/", productController.getAllProducts);
+//*------------------
+//Get all Products
+//*------------------
+productRouter.get("/getproducts", (req, res) => {
+  productController.getAllProducts(req, res);
+});
 
 export default productRouter;

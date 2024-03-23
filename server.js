@@ -15,12 +15,13 @@ import passport from "./src/middleware/passport.js";
 import session from "express-session";
 import errorMiddleware from "./src/middleware/error.middleware.js";
 
+
 //*------------------
 // CORS policy configuration
 //*------------------
 server.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -80,6 +81,15 @@ server.get(
 server.use("/api/products", productRouter);
 server.use("/api/users", userRouter);
 server.use("/api/payment", paymentRouter);
+// server.use("/api/cart", cartRouter);
+// server.use("/api/admin", adminRouter);
+
+//*------------------
+//404 page
+//*------------------
+server.use((req, res) => {
+  return res.status(404).send({ message: "Page not found" });
+});
 
 //*------------------
 //Global error middleware

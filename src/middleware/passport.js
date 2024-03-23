@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Strategy as OAuth2Strategy } from "passport-google-oauth20";
-import { Usermodel } from "../controller/user/user.repository.js";
+import Usermodel from "../controller/user/user.schema.js";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 
 // export const GoogleStrategy = new OAuth2Strategy(

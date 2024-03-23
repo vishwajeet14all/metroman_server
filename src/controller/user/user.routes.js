@@ -4,7 +4,9 @@ import { Router } from "express";
 // import Validate from "../../middleware/validate.middleware.js";
 // import SignupSchema from "../../validators/auth.signupValidator.js";
 
-
+//*--------------------------------------
+//creating userRouter from Express Router
+//*--------------------------------------
 const userRouter = Router();
 const userController = new UserController();
 //*------------------
@@ -22,6 +24,10 @@ userRouter.post("/signup", (req, res) => {
 userRouter.post("/login", (req, res) => {
   userController.login(req, res);
 });
+//*------------
+//Get All Users 
+//*------------
+
 //*------------------
 //Login Route O Auth
 //*------------------

@@ -1,13 +1,12 @@
 import UserRepository from "./user.repository.js";
 import jwt from "jsonwebtoken";
-import { Usermodel } from "./user.repository.js";
+import Usermodel from "./user.schema.js";
 import UserProfileModel from "./user.profileSchema.js";
 
 export default class UserController {
   constructor() {
     this.userRepository = new UserRepository();
   }
-
   //*------------------
   //Signup Logic
   //*------------------
@@ -33,6 +32,7 @@ export default class UserController {
     res.status(201).send({ message: "Sign up Successfull", user: user });
   }
 
+  
   //*------------------
   //Login Logic
   //*------------------
@@ -60,9 +60,9 @@ export default class UserController {
     }
   }
 
-  //*------------------
+  //*-------------------------
   //user Personal details page
-  //*------------------
+  //*-------------------------
   async personalDetail(req, res) {
     console.log("personalDetail ", req.body);
     const {
@@ -110,8 +110,9 @@ export default class UserController {
         .send({ message: "UserDetail saved successfull", user: user });
     }
   }
-
+  //*------------------------------------------------------------------
   //todo NOTE -> login with o Auth and getting a user data in frontend
+  //*------------------------------------------------------------------
   async loginSuccess(req, res) {
     console.log("O Auth login success response ", req.user);
     if (req.user) {

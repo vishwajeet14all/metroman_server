@@ -1,8 +1,5 @@
-import mongoose from "mongoose";
-import { userSchema } from "./user.schema.js";
 import UserProfileModel from "./user.profileSchema.js";
-//creating model from schema
-export const Usermodel = mongoose.model("User", userSchema);
+import Usermodel from "./user.schema.js";
 
 export default class UserRepository {
   
